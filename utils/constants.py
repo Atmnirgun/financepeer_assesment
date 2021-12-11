@@ -1,0 +1,10 @@
+CONFIG_SECTION_APP_CONFIG = 'AppConfig'
+
+CONFIG_PROP_DB_FILE = 'DatabaseFile'
+CONFIG_PROP_DB_SCHEMA_FILE = "DatabaseSchemaFile"
+CONFIG_PROP_DB_INIT_DATA_FILE = 'DatabaseInitDataFile'
+
+APP_CONFIG_OBJ = "APP_CONFIG_OBJ"
+DEFAULT_DB_INIT_DATA_FILE = "/config/init_data.json"
+
+DB_DATA_KEY_CONTENT_SYSTEM_USERS = "SystemUsers"

@@ -1,0 +1,21 @@
+{% extends "page_template.html" %}
+{% block title %}Home page{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='js/homepage.js') }}">
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #464c52;
+  }
+</style>
+{% endblock %}
+{% block mainContent %}
+<div class="container">
+  <div>
+    <label for="formFileLg" class="form-label">Large file input example</label>
+    <input class="form-control form-control-lg" id="formFileLg" type="file">
+  </div>  
+</div>
+{% endblock %}
+
