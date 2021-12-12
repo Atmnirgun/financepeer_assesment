@@ -2,7 +2,7 @@
 {% block title %}Home page{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='js/homepage.js') }}">
+<script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
 {{ super() }}
 <style type="text/css">
   .important {
@@ -12,10 +12,19 @@
 {% endblock %}
 {% block mainContent %}
 <div class="container">
-  <div>
-    <label for="formFileLg" class="form-label">Large file input example</label>
-    <input class="form-control form-control-lg" id="formFileLg" type="file">
-  </div>  
+  <div id="form_div">
+    <form enctype="multipart/form-data"><!--action="/upload" method="POST" enctype="multipart/form-data">-->
+      <div class="row">
+        <div class="col-10">
+          <input class="form-control form-control-lg" name="file" id="fileUpload" type="file" accept="application/JSON">
+        </div>
+        <div class="col-2 my-1">
+          <button type="button" id="sub_btn" class="btn btn-secondary" onclick="getFile()">upload</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="d-none" id="success_feedback"></div>
+  <a href="\showdata"><button class="btn btn-secondary d-none" id="show_btn">show</button></a>
 </div>
 {% endblock %}
-

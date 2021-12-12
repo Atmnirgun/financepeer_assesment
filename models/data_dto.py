@@ -1,8 +1,8 @@
 class DataDTO:
 
-    def __init__(self, userId:int, id:int, title:str, body:str):
+    def __init__(self, id:int, userId:int, title:str, body:str):
         
-        self.userId = userId
         self.id = id
+        self.userId = userId
         self.title = title
         self.body = body

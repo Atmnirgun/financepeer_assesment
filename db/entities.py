@@ -14,9 +14,12 @@ class User(db.Model):
         return f"User(id={self.id!r}, user_name={self.user_name!r})"
 
 class Data(db.Model):
-    __tablename__ = 'Data'
-    
+    __tablename__ = 'data'
+
     id = db.Column(db.Integer, db.Identity(always=False, start=1, cycle=False), primary_key=True)
     userId = db.Column(db.Integer, nullable=False)
-    title = db.Column(db.String(70), nullable=False)
-    body = db.Column(db.String(200), nullable=False)
+    title = db.Column(db.String(200), nullable=False)
+    body = db.Column(db.String(500), nullable=False)
+
+    def __repr__(self):
+        return super().__repr__()

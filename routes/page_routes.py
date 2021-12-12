@@ -3,6 +3,7 @@ from flask import (
 )
 
 from services.auth_service import AuthService
+from services.data_service import DataService
 from services.user_service import UserService
 bp = Blueprint('pages', __name__)
 
@@ -27,3 +28,12 @@ def logout():
     if session.get("username"):
         session.pop('username', None)
         return redirect(url_for('pages.login_page'))
+
+@bp.route('/showdata')
+def show_data():
+    result = AuthService.is_logged_in()
+    if result != True:
+        return result
+    data_service = DataService()
+    data_dtos = data_service.get_all()
+    return render_template("showdata.html",data_dtos=data_dtos)

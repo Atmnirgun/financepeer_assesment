@@ -1,0 +1,40 @@
+{% extends "page_template.html" %}
+{% block title %}Show Data{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #464c52;
+  }
+</style>
+{% endblock %}
+{% block mainContent %}
+<div class="container">
+    <div class="my-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">UserId</th>
+              <th scope="col">Title</th>
+              <th scope="col">Body</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if data_dtos != None %}
+              {% for dto in data_dtos %}
+                <tr>
+                  <th scope="row">{{dto.id}}</th>
+                  <td>{{dto.userId}}</td>
+                  <td>{{dto.title}}</td>
+                  <td>{{dto.body}}</td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+    
+          </tbody>
+        </table>
+      </div>
+</div>
+{% endblock %}
